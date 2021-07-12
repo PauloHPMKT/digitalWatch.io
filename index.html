@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio digital</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
+        body {
+            background-image: radial-gradient(#1e73c2, #3678f1);
+            height: 100vh
+        }
+        
+        .styleClock {
+            font-size: 150px;
+            font-family: 'Roboto', sans-serif;
+            color: #FFF;
+            filter: drop-shadow(-2px 3px 5px #0c4375);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="time" class="styleClock"></div>
+
+    <script>
+        const clock = document.querySelector('#time')
+        console.log(clock)
+
+        setInterval(() => {
+            const date = new Date()
+            const currentTime = [date.getHours(), date.getMinutes(), date.getSeconds()]
+                .map((v) => `0${v}`.slice(-2)).join(':')
+            clock.innerText = currentTime
+        }, 1000)
+    </script>
+
+</body>
+
+</html>
